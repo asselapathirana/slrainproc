@@ -1,3 +1,4 @@
+import sys
 import calendar
 import datetime
 import numpy as np
@@ -5,8 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns; sns.set(color_codes=True)
 
-with open("glencorse.csv") as df:
-    raw = df.readlines()
+file="glencorse.csv"
 sty=1989
 stm=10
 skiplines=3
@@ -17,6 +17,13 @@ TGYB = 25 # if two digits are < this then its 20xx, else 19xx.
 HEADERS = 3
 TOL = 0.01 # numerical tolerance 
 NMAXVALS = 5 # how many values to average
+if len(sys.argv) > 1:
+    file=sys.argv[1]
+
+
+with open() as df: 
+    raw = df.readlines()
+
 
 
 raw=raw[HEADERS:]
