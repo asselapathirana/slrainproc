@@ -1,5 +1,5 @@
 import os
-
+STATION="GLENCORSE"
 file="glencorse.csv"
 tsfile=os.path.splitext(file)[0]+"_ts.csv"
 sty=1989
