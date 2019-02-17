@@ -2,6 +2,8 @@ import os
 STATION="GLENCORSE"
 file="glencorse.csv"
 tsfile=os.path.splitext(file)[0]+"_ts.csv"
+resfile=os.path.splitext(file)[0]+"_results.csv"
+
 sty=1989
 stm=10
 skiplines=3
