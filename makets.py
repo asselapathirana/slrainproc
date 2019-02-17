@@ -1,25 +1,12 @@
 import sys
+import os
 import calendar
 import datetime
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns; sns.set(color_codes=True)
 
-file="glencorse.csv"
-sty=1989
-stm=10
-skiplines=3
-sep=";"
-slash='/'
-SM = 10 # october
-TGYB = 25 # if two digits are < this then its 20xx, else 19xx.
-HEADERS = 3
-TOL = 0.01 # numerical tolerance 
-NMAXVALS = 5 # how many values to average
-CI = 95 # confidence interval %
-XLAB = "Year"
-YLAB = "Rainfall (mm)"
+
+from data import *
 
 if len(sys.argv) > 1:
     file=sys.argv[1]
@@ -72,11 +59,8 @@ for i, lin in enumerate(raw):
 pdates=[pd.Timestamp(x) for x in dates]
 ts = pd.DataFrame(data={"Date":pdates,"Value":values})
 ts=ts.set_index("Date")
-tsm_ = ts.groupby(ts.index.year).apply(lambda grp: grp.nlargest(NMAXVALS,"Value").mean())
-tsm = pd.DataFrame(dict(Date=tsm_.index, Value=tsm_.Value))
-ax=sns.regplot(x=tsm.Date,y=tsm.Value, ci=CI)
-ax.set(xlabel=XLAB, ylabel=YLAB)
-plt.show()
+ts.to_csv(tsfile, na_rep="NaN")
+
         
     
     
