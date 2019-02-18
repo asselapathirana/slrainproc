@@ -19,8 +19,10 @@ ax=sns.regplot(x=tsm.Date,y=tsm.Value, ci=CI)
 ax.set(xlabel=XLAB, ylabel=YLAB)
 if NMAXVALS>1:
     t="Station {}. Mean of annual largest {} values.\nLinear regression with {}% confidence bands."
+    t=t.format(STATION, NMAXVALS, CI)
 else:
     t="Station {}. Annual maximum values.\nLinear regression with {}% confidence bands."
-t=t.format(STATION, NMAXVALS, CI)
+    t=t.format(STATION,  CI)
+
 ax.set_title(t)
 plt.show()
