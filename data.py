@@ -1,6 +1,6 @@
 import os
-STATION="KITHULGALA"
-file="kithulgala.csv"
+STATION="DARANIYAGALA"
+file="daraniyagala.csv"
 tsfile=os.path.splitext(file)[0]+"_ts.csv"
 resfile=os.path.splitext(file)[0]+"_results.csv"
 
